@@ -1,6 +1,6 @@
-title: cd-sebento-appinv-3
+title: Advanced App Inventor
 hero_image: images/banner.png
-description: cd-sebento-appinv-3 description
+description: Build an Android app to record accessible buildings near you
 version: 4
 listed: false
 copyedit: false
@@ -8,4 +8,12 @@ last_tested: "2018-05-04"
 steps:
   - title: Introduction
   - title: What you will need
-  - title: Step title
+  - title: Getting the user's location
+  - title: Creating the layout
+  - title: Saving data to Firebase
+  - title: Displaying data in the ListView
+  - title: Working out the distance between two locations
+  - title: Implementing a procedure to work out distances
+  - title: Filtering by distances
+  - title: Showing locations in a maps app
+  - title: Wrapping Up
