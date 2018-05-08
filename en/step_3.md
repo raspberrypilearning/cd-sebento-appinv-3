@@ -1,6 +1,8 @@
 ## Creating the layout
 
-+ First your going to setup a home screen! Add a label and two buttons to your app. Make the label say the name of the app, and set the buttons texts to "Add a place" and "Nearest accessible place".
++ Create a new project in App Inventor and name it “AccessApp”, or come up with a catchier name of your own!
+
++ First you're going to setup a home screen. Add a label and two buttons to your app. Make the label say the name of the app, and set the buttons' texts to "Add a place" and "Nearest accessible place".
 
 + Now I don’t know about you, but I think the title should be bigger! Go to the **Label’s** Properties and find **FontSize**. Change this to something nice and large. I chose 20!
 
@@ -10,18 +12,30 @@
 
 + Those **Buttons** are a bit small too. Go to their **Properties** and change their width to **Fill parent**.
 
-+ Great! Finally let’s add an image! Find or draw a suitable imagee or use the one at: [dojo.soy/accessIcon](TODO-LINK). If you’re finding one try and get it to be 240px × 225px or smaller. You could use a bigger one, but some fiddling with the size will then be needed!
-
++ Great! Finally let’s add an image! Find or draw a suitable imagee or use the one at: [dojo.soy/accessIcon](TODO-LINK). 
 + Now, get an **Image** Component and drag it onto the screen. Finally in the **Properties** section find **Picture**, then **Upload File**, and upload the image you downloaded.
 
 ![](images/upload_image.png)
 
 --- collapse ---
 ---
+title: Centering the image
+---
+
+Depending on the size of your image it might be be cool if it was displayed in the centre of the screen. 
+
++ To do that you will need a **HorizontalArrangement**(**Palette** > **Layout**). Drag one onto the screen and move your **Image** into it.
+
++ Now click on the **HorizontalArrangement** and go to its **Properties**. Find **AlignHorizontal** and switch it to **Center: 3**.
+
+--- /collapse ---
+
+--- collapse ---
+---
 title: My picture is bigger than the screen
 ---
 
-If you're using a picture that's too big, no problem! Instead of following the steps below to center the picture, do the following:
+If you're using a picture that's too big, no problem!
 
 + Click on the image and look at its properties.
 
@@ -29,11 +43,7 @@ If you're using a picture that's too big, no problem! Instead of following the s
 
 ![](images/s3ScalePicture.png)
 
---- /collapse --
-
-+ Perfect! But it would be cool if that image was in the centre of the screen. To do that you will need a **HorizontalArrangement**(**Palette** > **Layout**). Drag one onto the screen and move your **Image** into it.
-
-+ Now click on the **HorizontalArrangement** and go to its **Properties**. Find **AlignHorizontal** and switch it to **Center: 3**.
+--- /collapse ---
 
 + Awesome! You’ve just finished the first screen. Here’s what mine looks like
 ![](images/screen1.png)
