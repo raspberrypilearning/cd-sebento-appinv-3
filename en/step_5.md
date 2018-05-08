@@ -1,10 +1,10 @@
 ## Saving data to Firebase
 
-+ To allow for all users of your app to see all the accessible places you need to store the data online. To do this App Inventor has a Web database, where you can write values to and then later get them back.
+To allow for all users of your app to see all the accessible places you need to store the data online. To do this App Inventor has a Web database, where you can write values to and then later get them back.
 
-+ Staying on the **AddPlace** screen, go to the **Designer** view and drag a **FirebaseDB**(**Palette** > **Experimental**) component into your app. Don't worry if you get a popup message, just go ahead and click ok.
++ Staying on the **AddPlace** screen, go to the **Designer** view and drag a FirebaseDB (**Palette** > **Experimental**) component into your app. Don't worry if you get a popup message, just go ahead and click OK.
 
-+ Back in the Blocks section add a `call FirebaseDB.StoreValue` block.
++ Back in the Blocks, add a `call FirebaseDB.StoreValue` block.
 
 --- collapse ---
 ---
@@ -21,18 +21,27 @@ To make sure this doesn't happen you will tell Firebase to store a value "PlaceN
 
 --- /collapse ---
 
-+ Add a `call Firebase.GetValue` block to the `then` statement in the `[when Save.click]`.
++ Add a `call Firebase.GetValue` block to the `then` statement in the `when Save.Click`.
 
 + Put a `text` block with "PlaceNumber" for the **tag** and a `0` block for the **ValueIfTagNotThere**.
-![](images/getBinNumber.png)
+![](images/getPlaceNumber.png)
 
-+ Brilliant! What will happen now is your code will ask Firebase for the current amount of places. Firebase will look for this and when it finds the value, it will call a function. This is known as an **asynchronous call** and means your app will kept running while it waits for Firebase!
+--- collapse ---
+---
+title: Why is the value not returned?
+---
 
-+ When Firebase finds the value it will run the GotValue function. So go ahead and add a [when Firebase.GotValue] block, so you can run some code when this happens.
+What will happen now is your code will ask Firebase for the current amount of places. Firebase will look for this and when it finds the value, it will call another function, in this case `GotValue`.
 
-+ Firstly you need to increment the amount of the places (as you are adding a new one). Hover over "value" and drag out a `set value to`, put this into the `When Firebase.GotValue` block. Also take out a `get value` block.
+This is known as an **asynchronous call** and means your app can keep running while it waits for Firebase!
 
-+ Under **Math** there is a `+` block, drag this along with a `0` block out. Set the `0` block to 1
+---
+
++ When Firebase finds the value it will run the `GotValue` function. So go ahead and add a `when Firebase.GotValue` block, so you can run some code when this happens.
+
++ Firstly you need to increment the amount of the places (as you are adding a new one). Hover over "value" and drag out a `set value to`, put this into the `when Firebase.GotValue` block. Also take out a `get value` block.
+
++ Under Math drag out the `+` block along with a `0` block. Set the `0` block to `1`.
 
 + Place the `get value` and the `0` block into the `+` block and attach this to the `set value to` block.
 

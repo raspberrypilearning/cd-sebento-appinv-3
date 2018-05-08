@@ -10,23 +10,24 @@
 
 + Now since you have that new, nice, large title, you can get rid of one at the top of the screen. Click on the Screen, then in its **Properties** uncheck the **TitleVisible** checkbox.
 
-+ Those **Buttons** are a bit small too. Go to their **Properties** and change their width to **Fill parent**.
++ Those **Buttons** are a bit small too. Go to their properties and change their widths to **Fill parent**.
 
-+ Great! Finally let’s add an image! Find or draw a suitable imagee or use the one at: [dojo.soy/accessIcon](TODO-LINK). 
-+ Now, get an **Image** Component and drag it onto the screen. Finally in the **Properties** section find **Picture**, then **Upload File**, and upload the image you downloaded.
++ Finally, let’s add an image. Find or draw a suitable image or use the one at: [dojo.soy/accessIcon](TODO-LINK). 
+
++ Now, get an Image component and drag it onto the screen. In its properties find **Picture**, then **Upload File**, and upload the image you downloaded.
 
 ![](images/upload_image.png)
 
 --- collapse ---
 ---
-title: Centering the image
+title: Centering something
 ---
 
 Depending on the size of your image it might be be cool if it was displayed in the centre of the screen. 
 
-+ To do that you will need a **HorizontalArrangement**(**Palette** > **Layout**). Drag one onto the screen and move your **Image** into it.
++ To do that you will need a HorizontalArrangement from **Layout**. Drag one onto the screen and move your Image into it.
 
-+ Now click on the **HorizontalArrangement** and go to its **Properties**. Find **AlignHorizontal** and switch it to **Center: 3**.
++ Now click on the HorizontalArrangement and go to its properties. Set the Width to `Fill parent`, then find **AlignHorizontal** and switch it to `Center: 3`.
 
 --- /collapse ---
 
@@ -50,17 +51,19 @@ If you're using a picture that's too big, no problem!
 
 + Now make another screen named "AddPlace".
 
-+ Like before add a **Label** with the screen's title. Also add another **Label** saying "Location:", a **TextBox** and two **Buttons** ("Current Location" and "Save Place").
++ Like before add a Label with the screen's title. Also add another Label saying "Location:", a TextBox and two Buttons, "Current Location" and "Save Place".
 
-+ Now try out some of your new skills. Use two **HorizontalArrangements** to center both of those **Buttons**, and give the **TextBox** a width of of **FillParent**!
++ Now try out some of your new skills. Give the textbox a width of "Fill parent" and use two HorizontalArrangements to center both of those buttons.
 
 ![](images/componenetsInAddABin.png)
 
-+ It might look better if the save button was at the very bottom. Change the height of its **HorizontalArrangment** to **FillParent** and then just set its **AlignVertical** property to **Bottom: 3**.
++ It might look better if the save button was at the very bottom. Change the height of its HorizontalArrangment to `Fill parent` and then just set its AlignVertical property to `Bottom: 3`.
 
 + Awesome! You should have something like this:
-![](images/AddABin.png)
+![](images/AddPlace.png)
 
-+ Now you just need to add one more screen, name it "ListOfPlaces".
++ Now you just need to add one more screen. Name it "ListOfPlaces".
 
-+ This one is really simple, drag a **ListView** out and change its **Height** to **Fill parent**.
++ This one is really simple, drag a ListView out and change its Height to `Fill parent`.
+
+That's all your screens ready to go!

@@ -8,8 +8,8 @@ last_tested: "2018-05-04"
 steps:
   - title: Introduction
   - title: What you will need
-  - title: Getting the user's location
   - title: Creating the layout
+  - title: Getting the user's location
   - title: Saving data to Firebase
   - title: Displaying data in the ListView
   - title: Working out the distance between two locations
