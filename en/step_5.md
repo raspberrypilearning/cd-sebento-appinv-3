@@ -1,6 +1,6 @@
 ## Saving data to Firebase
 
-To allow for all users of your app to see all the accessible places you need to store the data online. To do this App Inventor has a Web database, where you can write values to and then later get them back.
+To allow for all users of your app to see all the accessible places you need to store the data online. To do this, App Inventor has a Web database, where you can write values to and then later get them back.
 
 + Staying on the **AddPlace** screen, go to the **Designer** view and drag a FirebaseDB (**Palette** > **Experimental**) component into your app. Don't worry if you get a popup message, just go ahead and click OK.
 
@@ -39,13 +39,13 @@ This is known as an **asynchronous call** and means your app can keep running wh
 
 + When Firebase finds the value it will run the `GotValue` function. So go ahead and add a `when Firebase.GotValue` block, so you can run some code when this happens.
 
-+ Firstly you need to increment the amount of the places (as you are adding a new one). Hover over "value" and drag out a `set value to`, put this into the `when Firebase.GotValue` block. Also take out a `get value` block.
++ Firstly you need to increment the amount of the places (as you are adding a new one). Hover over `value` and drag out a `set value to`. Put this into the `when Firebase.GotValue` block. Also take out a `get value` block.
 
-+ Under Math drag out the `+` block along with a `0` block. Set the `0` block to `1`.
++ From Math, drag out the `+` block along with a `0` block. Set the `0` block to `1`.
 
 + Place the `get value` and the `0` block into the `+` block and attach this to the `set value to` block.
 
-![](images/firebaseGotBinNumber.png)
+![](images/firebaseGotPlaceNumber.png)
 
 + Ok, so now you have your a unique **tag**. You have just increased the previous placeNumber by one. The next time sometime tries to add a place they will do the same, and so your **tag** will stay  unique!
 
@@ -53,10 +53,34 @@ This is known as an **asynchronous call** and means your app can keep running wh
 
 ![](images/firebaseStoreLocation.png)
 
-+ This block tells Firebase to add the location (The address in the TextBox) to the database. When we want to find the address again we can use its **tag**(The place number)
+This block tells Firebase to add the location (the address in the textbox) to the database. When you want to find the address again you can use its **tag** (the place number).
 
-+ Attach a `get value` block to the **tag** attachment and a `TextBox.text` to the **value** attachment
++ Attach a `get value` block to the `tag` attachment and a `TextBox.text` to the `value` attachment.
 
-+ The only thing left now to do is change the amount of places in Firebase. This is exactly the same as the previous block just with the tag and value changed. Try it yourself! It should go just underneath the previous `call Firebase.StoreValue` block
++ The only thing left now to do is change the amount of places in Firebase. This is exactly the same as the previous block just with the tag and value changed. Try it yourself! It should go just underneath the previous `call Firebase.StoreValue` block.
+
+--- hints ---
+
+--- hint ---
+
++ The value you want to store is the new value for the number of places.
+
++ Use the tag you defined earlier for getting and storing the current place number.
+
+--- /hint ---
+
+--- hint ---
+
++ To update the place number you need `call FirebaseDB.StoreValue` with a `tag` of `"PlaceNumber"` and a `value` of `get value`. Here is what the code looks like:
+
+![](images/firebaseStorePlaceNumber.png)
+
+--- /hint ---
+
+--- /hints ---
 
 + Fantastic! Now you can add new places to the app. Just add a `open another screen screenName` block and attach it to a `""` block. Type in "Screen1" here, so you can get back to the home screen.
+
+Your `GotValue` code should look like this now:
+
+![](images/gotValueDone.png)
