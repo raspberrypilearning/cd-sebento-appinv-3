@@ -26,7 +26,7 @@ You’ve finished, you now have a app that can add locations of accessible place
 
 + Now all that is left for you to do is to test it! Go to **Connection** menu and then select either the emulator, AICompanion, or whichever other method applies to you.
 
-That's it! Completed! I wonder what else you can do now with all the things you have learned. I am going to list a few ideas, but you could think of cooler ones yourself.
+That's it! Completed! I wonder what else you can do now with all the things you have learned. Below are just a few suggestions, but you could think of cooler ideas yourself.
 
 --- collapse ---
 ---
