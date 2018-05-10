@@ -1,6 +1,6 @@
 ## Getting the user's location
 
-If you want to know where the accessible places are you are going to need users to add the locations of them. Luckily App Inventor has a **LocationSensor** component.
+If you want to know where the accessible places are you are going to need users to add the locations of them. Luckily, App Inventor has a **LocationSensor** component that detects a user's location.
 
 + On the "AddPlace" screen, drag a LocationSensor from **Sensors** onto your app.
 
@@ -17,7 +17,7 @@ I like giving my components identifiable names.
 
 + In the **Designer** view click on the component and at the bottom of the **Components** Section click **Rename**. 
 
-+ I called my buttons "CurrentLocation" and "Save".
++ I called my buttons "currentLocation" and "Save".
 
 --- /collapse ---
 
@@ -33,9 +33,7 @@ You need to be careful though: it's a good idea to check that there is always an
 
 + Drag out an `if, then, else` block and put it into the `when Save.Click` block.
 
-+ Now you need to make the `if` condition check if the textbox has text in it.
-
-+ Drag out an `is empty` block and attach it to a `TextBox.text` block.
++ Now you need to make the `if` condition check if the textbox has text in it. Drag out an `is empty` block and attach it to a `TextBox.text` block.
 
 + Ok, so now you can check if the **TextBox** is empty, but you want to check if it is **not** empty. To do this, get a `not` block out and put it before the `is empty` block.
 
@@ -43,9 +41,9 @@ You need to be careful though: it's a good idea to check that there is always an
 
 One last thing: you need to tell the user that the textbox is empty.
 
-+ Switch over to the Designer view and drag a Label into the app. Give it a warning message and set the text color to red. Finally uncheck the **Visible** checkbox.
++ Switch over to the Designer view and drag a label into the app. Give it a warning message and set the text color to red. Finally uncheck the **Visible** checkbox.
 
-+ Also you are only going to want to show that label for a second so you are going to need a Clock. Drag one out from **Sensors** – it will appear with the non-visible components. 
++ Also you are only going to want to show that label for a second so you are going to need a Clock. Drag one out from **Sensors** – it will appear in the non-visible components, below the app screen. 
 
 + Uncheck the clock's **TimerEnabled** checkbox so it doesn’t fire right away!
 

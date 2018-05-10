@@ -35,7 +35,7 @@ What will happen now is your code will ask Firebase for the current amount of pl
 
 This is known as an **asynchronous call** and means your app can keep running while it waits for Firebase!
 
----
+--- /collapse ---
 
 + When Firebase finds the value it will run the `GotValue` function. So go ahead and add a `when Firebase.GotValue` block, so you can run some code when this happens.
 
@@ -79,7 +79,7 @@ This block tells Firebase to add the location (the address in the textbox) to th
 
 --- /hints ---
 
-+ Fantastic! Now you can add new places to the app. Just add a `open another screen screenName` block and attach it to a `""` block. Type in "Screen1" here, so you can get back to the home screen.
++ Fantastic! Now you can add new places to the app. Just add a `open another screen screenName` block and attach it to a `""` block. Type in `Screen1` here, so you can get back to the home screen.
 
 Your `GotValue` code should look like this now:
 

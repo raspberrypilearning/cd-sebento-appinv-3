@@ -24,5 +24,6 @@ You want to pass a string to this that tells Android that you want to see a map 
 
 + Get a `join` block block and connect it to a `""` block. In this you have to type the string `geo:0,0?q=`. The **geo** part tells android that you want a map and the **?q=** part says that you want to see the address that follows. Of course, you now need an address so attach a `ListView.Selection` block.
 
-+ Lastly drag a `ActivityStarter.StartActivity` block onto the previous block
++ Lastly drag an `ActivityStarter.StartActivity` block onto the previous block.
+
 ![](images/showLocationInMapsApp.png)

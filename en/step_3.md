@@ -4,13 +4,11 @@
 
 + First you're going to setup a home screen. Add a label and two buttons to your app. Make the label say the name of the app, and set the buttons' texts to "Add a place" and "Nearest accessible place".
 
-+ Now I don’t know about you, but I think the title should be bigger! Go to the **Label’s** Properties and find **FontSize**. Change this to something nice and large. I chose 20!
++ Now I don’t know about you, but I think the title should be bigger! Go to the label’s Properties and change the FontSize to something nice and large. I chose 28 but you could go bigger!
 
-![](images/fontsize.png)
++ Now since you have that new, nice, large title, you can get rid of one at the top of the screen. Click on the screen under **Components**, then in its Properties uncheck the **TitleVisible** checkbox.
 
-+ Now since you have that new, nice, large title, you can get rid of one at the top of the screen. Click on the Screen, then in its **Properties** uncheck the **TitleVisible** checkbox.
-
-+ Those **Buttons** are a bit small too. Go to their properties and change their widths to **Fill parent**.
++ Those buttons are a bit small too. Go to their properties and change their widths to `Fill parent`.
 
 + Finally, let’s add an image. Find or draw a suitable image or use the one at: [dojo.soy/accessIcon](TODO-LINK). 
 
@@ -51,11 +49,11 @@ If you're using a picture that's too big, no problem!
 
 + Now make another screen named "AddPlace".
 
-+ Like before add a Label with the screen's title. Also add another Label saying "Location:", a TextBox and two Buttons, "Current Location" and "Save Place".
++ Like before, add a label with the screen's title. Also add another Label saying "Location:", a TextBox and two Buttons, "Current Location" and "Save Place".
 
 + Now try out some of your new skills. Give the textbox a width of "Fill parent" and use two HorizontalArrangements to center both of those buttons.
 
-![](images/componenetsInAddABin.png)
+![](images/componenetsInAddPlace.png)
 
 + It might look better if the save button was at the very bottom. Change the height of its HorizontalArrangment to `Fill parent` and then just set its AlignVertical property to `Bottom: 3`.
 

@@ -6,11 +6,11 @@ Now that you know how to work out distance you can show only places that are wit
 
 ![](images/addingInputsToProcedure.png)
 
-+ Next, from the **Variables** section, drag a `initialize local name to` block out (The one that has a side attachment instead of a top attachment).
++ Next, from the **Variables** section, drag a `initialize local name to` block out (the one that has a side attachment instead of a top attachment).
 
 ![](images/distanceProcedureStart.png)
 
-+ Add six variables to this: "lat1"; "long1";  "lat2"; "long2"; "x"; and "y". Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise` block.
++ Add six variables to this: `lat1`; `long1`;  `lat2`; `long2`; `x`; and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise` block.
 
 + You are going to now need a way of converting text addresses into latitude and longitude coordinates. Thankfully the LocationSensor does this. Go to the **Designer** view and add one.
 
@@ -40,7 +40,7 @@ Perfect! With that you have the lengths of two of the triangles sides for the di
 
 + From the **Math** section get the `square root` and `+` blocks along with 2 `^`(power) blocks and two `0` blocks.
 
-+ Put a `get x` into the left input of one of the `^` blocks and a `get y` into the left input of another. Put the `0` blocks into the `^` block also, with 0 changed to 2. This will square both x and y(i.e. x^2 = x * x)
++ Put a `get x` into the left input of one of the `^` blocks and a `get y` into the left input of another. Put the `0` blocks into the `^` block also, with 0 changed to 2. This will square both x and y (x squared is x times x, i.e. or x^2 = x * x).
 
 + Place both `^` blocks into the `+` block and attach this to the `square root` block. Finally plug this into the result attachment.
 ![](images/preformingPythagorasTheorem.png)

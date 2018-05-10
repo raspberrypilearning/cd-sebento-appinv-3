@@ -10,7 +10,7 @@ For this you of course need two addresses: the address of the place and your add
 
 + In the `when ListOfPlaces.Initialize` block add a `set global currentLocation to` block and connect it with a `get LocationSensor.CurrentAddress` block.  
 
-+ But what if the user's location is unavailable? To cover this possibility, you need to do a check before setting the current location variable.
+But what if the user's location is unavailable? To cover this possibility, you need to do a check before setting the current location variable.
 
 + Put an `if then` block into `when ListOfPlaces.Initialize` and move the `set lobal currentLocation` code into the `then`.    
 
