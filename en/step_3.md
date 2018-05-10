@@ -10,7 +10,7 @@
 
 + Those buttons are a bit small too. Go to their properties and change their widths to `Fill parent`.
 
-+ Finally, let’s add an image. Find or draw a suitable image or use the one at: [dojo.soy/accessicon](http://dojo.soy/accessicon). 
++ Finally, let’s add an image. Find or draw a suitable image or use the one at: [dojo.soy/accessicon](http://dojo.soy/accessicon){:target="_blank}. 
 
 + Now, get an Image component and drag it onto the screen. In its properties find **Picture**, then **Upload File**, and upload the image you downloaded.
 

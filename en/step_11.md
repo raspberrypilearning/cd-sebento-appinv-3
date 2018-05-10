@@ -63,3 +63,5 @@ title: Make a different app!
 + But there is no reason to even stay working on this app. The possibilities are endless. With the same blocks you could use **Firebase** to make a messaging app or take advantage of the **Clock** to make your own alarm clock!
 
 --- /collapse ---
+
+You can see an example of this app on App Inventor at [dojo.soy/advancedapp](http://dojo.soy/advancedapp){:target="_blank"} 
