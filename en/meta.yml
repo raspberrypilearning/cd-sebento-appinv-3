@@ -1,6 +1,6 @@
-title: Advanced App Inventor
+title: Advanced App Inventor Sushi Cards
 hero_image: images/banner.png
-description: Build an Android app to record accessible buildings near you
+description: Build an Android app to record accessible locations near you
 version: 4
 listed: false
 copyedit: false
@@ -14,6 +14,6 @@ steps:
   - title: Displaying data in the ListView
   - title: Working out the distance between two locations
   - title: Implementing a procedure to work out distances
-  - title: Filtering by distances
+  - title: Filtering by distance
   - title: Showing locations in a maps app
   - title: Wrapping Up
