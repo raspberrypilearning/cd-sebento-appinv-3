@@ -2,10 +2,12 @@
 
 ### Hardware
 
-+ A computer capable of accessing App Inventor.
++ A computer capable of accessing App Inventor
 
 + An internet connection
 
-+ Optional: an Android phone or tablet
+**Optional:**
+
++ An Android phone or tablet
 
 
