@@ -10,7 +10,7 @@ Now that you know how to work out distance, you can make your app only show plac
 
 ![](images/distanceProcedureStart.png)
 
-+ Add six variables to this: `lat1`, `long1`, `lat2`, `long2`, `x`, and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise` block.
++ Add six variables to this: `lat1`, `long1`, `lat2`, `long2`, `x`, and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise local` block.
 
 + Now you need a way of converting text addresses into latitude and longitude coordinates. Thankfully, the LocationSensor does this, so go to the **Designer** view and add one.
 
@@ -22,7 +22,7 @@ Now that you know how to work out distance, you can make your app only show plac
 
 ![](images/initializingVaribles.png)
 
-+ Get a `do result` block from Control, and put it into the `in` attachment of the `initialize local to` block.
++ Get a `do result` block from Control, and put it into the `in` attachment of the (now very big!) `initialize local` block.
 
 Great! Now you need to work out the distance.
 
