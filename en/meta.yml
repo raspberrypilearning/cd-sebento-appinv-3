@@ -1,9 +1,9 @@
 title: Advanced App Inventor Sushi Cards
 hero_image: images/banner.png
 description: Build an Android app that records specific locations and gives directions
-version: 4
+version: 1
 listed: false
-copyedit: false
+copyedit: true
 last_tested: "2018-05-04"
 steps:
   - title: Introduction
