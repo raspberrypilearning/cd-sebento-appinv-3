@@ -3,7 +3,7 @@ hero_image: images/banner.png
 description: Build an Android app that records specific locations and gives directions
 theme: green
 version: 1
-listed: false
+listed: true
 copyedit: true
 last_tested: "2018-05-04"
 steps:
