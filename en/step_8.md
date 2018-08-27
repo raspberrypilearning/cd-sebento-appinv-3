@@ -1,58 +1,47 @@
-## Implementing a procedure to work out distances
+## Filtering by distance
 
-Now that you know how to work out distance, you can make your app only show places that are within 5km of a user.
+Great! You now have a procedure that can work out the distance between two addresses. Next you'll add this to your `when FireBase.GotValue` function.
 
-+ Drag out a **procedure** block (the result one) and call it `distanceBetween`. Click on the wrench icon in the top left-hand corner and drag two inputs into it. Name these `address1` and `address2`.
+For this you of course need two addresses: the address of the accessible place and your address (the address of the app user).
 
-![](images/addingInputsToProcedure.png)
++ First you should get your current location. As you will be using this value multiple times, it's a good idea to store it as a variable. Add an `initialize global name to` block, change its name to `currentLocation`, and set it to an empty text block.
 
-+ Next, from the Variables section, drag out a `initialize local name to` block (the one that has a side attachment instead of a top attachment).
+![](images/initGlobalLocation.png)
 
-![](images/distanceProcedureStart.png)
++ In the `when ListOfPlaces.Initialize` block, add a `set global currentLocation to` block and connect it with a `get LocationSensor.CurrentAddress` block.  
 
-+ Add six variables to this: `lat1`, `long1`, `lat2`, `long2`, `x`, and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise local` block.
+But what if the user's location is unavailable? To cover this possibility, you need to do a check before setting the `currentLocation` variable.
 
-+ Now you need a way of converting text addresses into latitude and longitude coordinates. Thankfully, the LocationSensor does this, so go to the **Designer** view and add one.
++ Put an `if then` block into `when ListOfPlaces.Initialize` and move the `set global currentLocation` code into the `then`.    
 
-+ Get two `call LocationSensor.LatitudeFromAddress` blocks. Attach a `get address1` block to one, and a `get address2` block to the other. Put these into the `lat1` and `lat2` attachments.
++ Find the `LocationSensor.HasLongitudeLatitude` block and attach it to the `if`:
 
-+ Repeat the same thing with for longitude.
+![](images/getCurrentLocation.png)
 
-+ Drag in two `0` blocks and attach these to `initialize local x to` and `initialize local y to` blocks.
+Now you are ready to use the procedure you made to get the distance.
 
-![](images/initializingVaribles.png)
++ Insert an `initialize local name to` block (the one with a top attachment) into the `then` in your `when FireBase.GotValue`, and change `name` to `distance`. 
 
-+ Get a `do result` block from Control, and put it into the `in` attachment of the (now very big!) `initialize local` block.
++ You only want to use the distance formula if you know the user's location, so connect an `if then else` block (the one that has a side attachment). To the `if`, attach three blocks: `not` (Logic), `is empty` (Text), and `get global currentLocation`. 
 
-Great! Now you need to work out the distance.
++ Connect a `call distanceBetween` block to the `then`. If the `currentLocation` is blank, you will just show all the places, so place a `0` Math block in the `else` to return zero as the distance.
 
-+Get out the blocks `set x to`, `get lat1`, `get lat2`, `x`, `-`, and `0`.
+![](images/initDistWithLocationCheck.png)
 
-![](images/collectionOfBlocks.png)
++ For one of the **parameters** (values that you pass to the function) of the `call distanceBetween`, attach a `get global currentLocation` block. For the other parameter, attach a `get value` block (remember this contains the address of the place you got from Firebase).
 
-+ Place the `get lat2` and `get lat1` block into the `-` block, and place the `-` block into the `x` block.
++ Inside the `initialize local distance to` block, add an `if then` block.
 
-![](images/settingUpLatitudeApprox.png)
+You are now going to check whether the distance is less than 5km.
 
-Now you’ve got the difference in latitude!
++ Get a `<` block and a a `0` block from the Math section.
 
-+ Multiply this by `111` to get the distances in kilometres between the two latitudes. Then just plug that into the `set x to` block, and put the `set x to` block into the `do` section of the `do result` block.
++ Put a `get distance` into the first input in the `<` block, and the `0` block into the second input. Set the `0` block to `5`.
 
-![](images/latitudeDifferenceToKilometers.png)
++ Plug the `<` block into the `if then` block.
 
-+ Do the same thing with the `set y to` block, changing `111` to `89` and `lat` to `long`.
++ Move the `add items to list` block so it is inside the `then` statement of the `if then` block.
 
-Perfect! With that you have the lengths of two of your triangle's sides to use in the distance formula!
++ If everything has gone correctly, it should look like this:
 
-+ From the Math section, get the `square root` and `+` blocks along with two `^`(power) blocks and two `0` blocks.
-
-+ Put a `get x` into the left input of one of the `^` blocks, and put a `get y` into the left input of another. Put the `0` blocks into the `^` block also, with `0` changed to `2`.
-
-This will square both `x` and `y` (`x` squared is `x` times `x`, meaning `x^2 = x * x`).
-
-+ Place both `^` blocks into the `+` block and attach this to the `square root` block. Finally, plug this into the result attachment.
-![](images/preformingPythagorasTheorem.png)
-
-Here is what your finished `distanceBetween` procedure should look like:
-
-![](images/distanceBetweenFull.png)
+![](images/filteringByDistance.png)

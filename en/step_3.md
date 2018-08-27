@@ -1,75 +1,58 @@
-## Creating the layout
+## Getting the user's location
 
-+ Create a new project in App Inventor and name it `AccessApp`, or come up with a catchier name of your own!
+If you want to know where the accessible places near you are, you are going to need users to add their locations to your app. Luckily, App Inventor has a **LocationSensor** component that detects a user's location.
 
-+ First you're going to set up a home screen. Add a label and two buttons to your app. Make the label say the name of the app, and set the texts of the buttons to "Add a place" and "Nearest accessible place".
++ On the "AddPlace" screen, drag a LocationSensor from **Sensors** onto your app.
 
-Now I don’t know about you, but I think the title should be bigger!
+You’re now going to get the user’s location and put it into the **TextBox**.
 
-+ Go to the label’s Properties and change the FontSize to something nice and large. I chose 28, but you could go bigger!
-
-Now since you have that new, nice, large title, you can get rid of one at the top of the screen.
-
-+ Click on the screen under **Components**, and in its Properties, un-check the **TitleVisible** checkbox.
-
-+ Those buttons are a bit small too, so go to their Properties and change their widths to `Fill parent`.
-
-+ Finally, let’s add an image. Find or draw a suitable image or use the one here: [dojo.soy/accessicon](http://dojo.soy/accessicon){:target="_blank}. 
-
-+ Now get an Image component and drag it onto the screen. In its Properties, find **Picture**, then **Upload File**, and upload the image you want to use.
-
-![](images/upload_image.png)
++ Switch over to the Blocks view and drag two `when Button.Click` blocks onto the screen.
 
 --- collapse ---
 ---
-title: Centering something
+title: Renaming components
 ---
 
-Depending on the size of your image, it might be be cool if it was displayed in the centre of the screen. 
+I like giving my components identifiable names. 
 
-+ To do that you will need a HorizontalArrangement from **Layout**. Drag one onto the screen and move your Image into it.
++ In the Designer view, click on the component. At the bottom of the **Components** section, click **Rename**. 
 
-+ Now click on **HorizontalArrangement** and go to its Properties. Set the Width to `Fill parent`, then find **AlignHorizontal** and switch it to `Center: 3`.
++ I called my Buttons "currentLocation" and "Save".
 
 --- /collapse ---
 
---- collapse ---
----
-title: My picture is bigger than the screen
----
++ Drag a `set TextBox.Text` block onto the screen and put it in your "Current Location" Button.
 
-If you're using a picture that's too big, no problem!
++ Now drag a `LocationSensor.CurrentAddress` block out and attach it to the `set TextBox.Text` block.
 
-+ Click on the image and look at its Properties.
+![](images/getUserLocation.png)
 
-+ Check the box **ScalePictureToFit**. This will shrink the picture to fit the screen.
+Great! Now when you click on "GetLocation", the TextBox’s text will be set to your current address from the LocationSensor.
 
-![](images/s3ScalePicture.png)
+You need to be careful though: it's a good idea to check that there is always an address in the TextBox before adding a new place! You need to **validate the input**.
 
---- /collapse ---
++ Drag out an `if, then, else` block, and put it into the `when Save.Click` block.
 
-+ Awesome! You’ve just finished the first screen. Here’s what mine looks like:
++ Now you need to make the `if` condition check if the TextBox has text in it. Drag out an `is empty` block, and attach it to a `TextBox.text` block.
 
-![](images/screen1.png)
++ OK, now you can check whether the TextBox is empty, but you want to check if it is **not** empty. To do this, get a `not` block out and put it before the `is empty` block.
 
-+ Now make another screen named "AddPlace".
+![](images/checkIfTextBoxEmpty.png)
 
-+ Like before, add a Label with the screen's title. Also add another Label saying "Location:", a TextBox, and two Buttons saying "Current Location" and "Save Place".
+One last thing: you need to tell the user that the TextBox is empty.
 
-+ Now try out some of your new skills. Give the TextBox a width of "Fill parent" and use two HorizontalArrangements to center both Buttons.
++ Switch over to the Designer view and drag a Label into the app. Give it a warning message and set the text color to red. Finally, uncheck the **Visible** checkbox.
 
-![](images/componenetsInAddPlace.png)
++ You'll want to show this label for a second, so you are going to need a **Clock**. Drag one out from Sensors — it will appear with the other non-visible components below the app screen. 
 
-It might look better if the save button was at the very bottom.
++ Uncheck the clock's **TimerEnabled** checkbox so it doesn’t fire right away!
 
-+ Change the height of its HorizontalArrangment to `Fill parent` and then just set its **AlignVertical** property to `Bottom: 3`.
++ Back in the Blocks view, drag a `set Label.Visible` and a `set Clock.TimerEnabled` block out and attach both of them to `true` blocks. Then put both in the `else` statement.
 
-+ Awesome! You should have something like this:
+![](images/saveClickElse.png)
 
-![](images/AddPlace.png)
+Nearly there! Now, if there is no text in the **TextBox**, your warning label will become visible and your clock will be enabled. You just need to make the label invisible again after about a second, so the user doesn't have to keep looking at it.
 
-+ Now you just need to add one more screen. Name it "ListOfPlaces".
++ Take out a `when Clock.Timer` block and duplicate the two blocks you just made. Change `true` to `false` and put duplicate blocks inside the `when Clock.Timer` block.
 
-+ This one is really simple: drag a ListView out and change its Height to `Fill parent`.
-
-That's all your screens ready to go!
+![](images/hideLabel.png)

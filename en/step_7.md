@@ -1,42 +1,58 @@
-## Working out the distance between two locations
+## Implementing a procedure to work out distances
 
-Don’t worry, I’ll kept the maths to a minimum. You’ll have no problem understanding it, and anyway, you’re going to be programming a computer to do the maths for you!
+Now that you know how to work out distance, you can make your app only show places that are within 5km of a user.
 
-What you want is to only show places that are close to where a user currently is. To do this, you need to find the distance between two addresses.
++ Drag out a **procedure** block (the result one) and call it `distanceBetween`. Click on the wrench icon in the top left-hand corner and drag two inputs into it. Name these `address1` and `address2`.
 
-To explain how this works, I'll be talking about three things:
-  1. Latitude
-  1. Longitude
-  1. An old guy named Pythagoras
+![](images/addingInputsToProcedure.png)
 
-### Latitude and longitude
-Latitude and longitude are geographic coordinates. They allow for the position of places to be described using numbers.  
++ Next, from the Variables section, drag out a `initialize local name to` block (the one that has a side attachment instead of a top attachment).
 
-   **Example:** The Spire, Dublin, Ireland is located at 53.3498° N (latitude), 6.2603°W (longitude)
+![](images/distanceProcedureStart.png)
 
-+ On average, the distance between two lines of latitude (i.e. The distance between something at 53° to something at 54°) is 111 kilometers (69 miles).
++ Add six variables to this: `lat1`, `long1`, `lat2`, `long2`, `x`, and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise local` block.
 
-+ The average distance between two lines of longitude is 89 kilometers (55 miles).
++ Now you need a way of converting text addresses into latitude and longitude coordinates. Thankfully, the LocationSensor does this, so go to the **Designer** view and add one.
 
-Great! So now if you know the latitude and longitude of two points, you can find the distance their latitude and longitude lines are apart.
++ Get two `call LocationSensor.LatitudeFromAddress` blocks. Attach a `get address1` block to one, and a `get address2` block to the other. Put these into the `lat1` and `lat2` attachments.
 
-### That Pythagoras guy
++ Repeat the same thing with for longitude.
 
-+ You might want to draw out this next bit! What you have right now is the length of two lines, and what you want is the length of the line that connects the tops of these two lines.
++ Drag in two `0` blocks and attach these to `initialize local x to` and `initialize local y to` blocks.
 
-![](images/latitudeLongitudeDiagram.png)
+![](images/initializingVaribles.png)
 
-You are in luck! In the 500s BC, there lived a mathematician named Pythagoras. He discovered that by knowing the lengths of two sides of a triangle (since what you have is a triangle), you can work out the length of the third side.
++ Get a `do result` block from Control, and put it into the `in` attachment of the (now very big!) `initialize local` block.
 
-He came up with this equation ![](images/pythagorasTheorem.png)  where Z is the largest side
+Great! Now you need to work out the distance.
 
-+ So with this in mind, we can insert our values into this equation to calculate the length of the line we're interested in:
-![](images/pythagorasTheorem1.png)
-![](images/pythagorasTheorem2.png)
-![](images/pythagorasTheorem3.png)
-![](images/pythagorasTheorem4.png)
-![](images/pythagorasTheorem5.png)
++Get out the blocks `set x to`, `get lat1`, `get lat2`, `x`, `-`, and `0`.
 
-Tada! With this method, you can work out the distance between any person and the location of an accessible place! Pretty cool, right?
+![](images/collectionOfBlocks.png)
 
-On the next card, you will write a **procedure** that does this calculation for you.
++ Place the `get lat2` and `get lat1` block into the `-` block, and place the `-` block into the `x` block.
+
+![](images/settingUpLatitudeApprox.png)
+
+Now you’ve got the difference in latitude!
+
++ Multiply this by `111` to get the distances in kilometres between the two latitudes. Then just plug that into the `set x to` block, and put the `set x to` block into the `do` section of the `do result` block.
+
+![](images/latitudeDifferenceToKilometers.png)
+
++ Do the same thing with the `set y to` block, changing `111` to `89` and `lat` to `long`.
+
+Perfect! With that you have the lengths of two of your triangle's sides to use in the distance formula!
+
++ From the Math section, get the `square root` and `+` blocks along with two `^`(power) blocks and two `0` blocks.
+
++ Put a `get x` into the left input of one of the `^` blocks, and put a `get y` into the left input of another. Put the `0` blocks into the `^` block also, with `0` changed to `2`.
+
+This will square both `x` and `y` (`x` squared is `x` times `x`, meaning `x^2 = x * x`).
+
++ Place both `^` blocks into the `+` block and attach this to the `square root` block. Finally, plug this into the result attachment.
+![](images/preformingPythagorasTheorem.png)
+
+Here is what your finished `distanceBetween` procedure should look like:
+
+![](images/distanceBetweenFull.png)
