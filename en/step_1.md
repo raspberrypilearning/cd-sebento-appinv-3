@@ -25,7 +25,7 @@ title: What you will learn
 
 --- collapse ---
 ---
-title: 
+title: What you will need
 ---
 
 ### Hardware
