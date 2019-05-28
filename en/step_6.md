@@ -1,37 +1,42 @@
-## Displaying data in the ListView
+## Working out the distance between two locations
 
-The next step in the making of your app is creating a way to see all the accessbile places. You want to program it so that it finds all the place entries and then adds each one as an element of the ListView in the ListOfPlaces screen. To do this, you are to need the FirebaseDB component again.
+Don’t worry, I’ll kept the maths to a minimum. You’ll have no problem understanding it, and anyway, you’re going to be programming a computer to do the maths for you!
 
-+ Switch to the ListOfPlaces screen and drag out a FirebaseDB component onto the Designer view.
+What you want is to only show places that are close to where a user currently is. To do this, you need to find the distance between two addresses.
 
-+ Now switch over to the Blocks view, and take out a `when ListOfPlaces.Initialize` block. Everything in this will run as soon as this screen opens up.
+To explain how this works, I'll be talking about three things:
+  1. Latitude
+  1. Longitude
+  1. An old guy named Pythagoras
 
-+ Place a `call FireBase.GetTagList` block inside this block. This tells Firebase to return a list containing the tags of all saved data in your database.
+### Latitude and longitude
+Latitude and longitude are geographic coordinates. They allow for the position of places to be described using numbers.  
 
-![](images/firebaseGetTagList.png)
+   **Example:** The Spire, Dublin, Ireland is located at 53.3498° N (latitude), 6.2603°W (longitude)
 
-+ Take out a `when FireBase.TagList` block and insert a `for each item in list` block inside it. This function will run as soon as Firebase gets our collection of tags in the form of a list, which it uses as the `value` variable.
++ On average, the distance between two lines of latitude (i.e. The distance between something at 53° to something at 54°) is 111 kilometers (69 miles).
 
-With the `for` loop you now have individual tags being set to the item variable. Of course you don’t want the tag, you want the address, and you'll use the tag to get it. 
++ The average distance between two lines of longitude is 89 kilometers (55 miles).
 
-Grab a `call Firebase.GetValue` block, and set the tag to the `item` variable, since this contains the current tag from the `value` list.
+Great! So now if you know the latitude and longitude of two points, you can find the distance their latitude and longitude lines are apart.
 
-![](images/firebaseTagList.png)
+### That Pythagoras guy
 
-+ Add a `when Firebase.GotValue` block, and put a `add items to list` block inside it.
++ You might want to draw out this next bit! What you have right now is the length of two lines, and what you want is the length of the line that connects the tops of these two lines.
 
-+ You will need a list to add locations to, so add an `initialize global name` block. Change its `name` to `locations` and drag a `create empty list` block onto the end of it.
+![](images/latitudeLongitudeDiagram.png)
 
-+ Now attach a `get global locations` block to the list attachment of the `add items to list` block, and a `get value` block to the item attachment. The `value` variable contains the address of the place.
+You are in luck! In the 500s BC, there lived a mathematician named Pythagoras. He discovered that by knowing the lengths of two sides of a triangle (since what you have is a triangle), you can work out the length of the third side.
 
-**Note**: the list of tags will also contain the `"PlaceNumber"` tag that you're using to keep count of the places, so you'll need to exclude that from the list you display.
+He came up with this equation ![](images/pythagorasTheorem.png)  where Z is the largest side
 
-+ Add an `if then` block from Control to your `GotValue` block, and move the `add items to list` code so it's inside the `then` block.
++ So with this in mind, we can insert our values into this equation to calculate the length of the line we're interested in:
+![](images/pythagorasTheorem1.png)
+![](images/pythagorasTheorem2.png)
+![](images/pythagorasTheorem3.png)
+![](images/pythagorasTheorem4.png)
+![](images/pythagorasTheorem5.png)
 
-+ Onto the `if` part: attach a `not` and an `=` from Logic. Hover over the `tag` variable and put a `get tag` on the left of the `=`. tThen put a `""` Text block on the right and type `"PlaceNumber"` into it.
+Tada! With this method, you can work out the distance between any person and the location of an accessible place! Pretty cool, right?
 
-![](images/ifTagNotPlaceNumber.png)
-
-+ Lastly you need to tell the ListView to get its elements from your list. Get a `set ListView.Elements` block and attach a `get global locations` block to it.
-
-![](images/firebaseGotLocation.png)
+On the next card, you will write a **procedure** that does this calculation for you.

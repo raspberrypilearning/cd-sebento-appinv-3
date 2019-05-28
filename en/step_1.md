@@ -8,7 +8,10 @@ You will make an app that people can use to find accessible places near them and
  
 ![](images/all app.png)
 
-### What you will learn
+--- collapse ---
+---
+title: What you will learn
+---
 
 + Using Layout Arrangements
 + Adding images
@@ -17,3 +20,21 @@ You will make an app that people can use to find accessible places near them and
 + Waiting for lengths of times
 + Saving and retrieving online data with other users
 + Communicating with other apps
+
+--- /collapse ---
+
+--- collapse ---
+---
+title: 
+---
+
+### Hardware
+
++ A computer capable of accessing App Inventor
++ An internet connection
+
+**Optional:**
+
++ An Android phone or tablet
+
+--- /collapse ---

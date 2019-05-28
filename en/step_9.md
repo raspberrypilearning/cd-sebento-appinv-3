@@ -1,47 +1,33 @@
-## Filtering by distance
+## Showing locations in a maps app
 
-Great! You now have a procedure that can work out the distance between two addresses. Next you'll add this to your `when FireBase.GotValue` function.
+Wow! You’ve done so much, and the app is nearly finished. The last thing to do is to show people how they can get to a place. 
 
-For this you of course need two addresses: the address of the accessible place and your address (the address of the app user).
+In programming they say everyone builds "standing on the shoulders of giants". This means that you create programs by using what has already been done. In your case, to give people directions to a place, it would be best to use a maps application that's already installed.
 
-+ First you should get your current location. As you will be using this value multiple times, it's a good idea to store it as a variable. Add an `initialize global name to` block, change its name to `currentLocation`, and set it to an empty text block.
+On Android, this can be done by using the **StartActivity** method. This is part of the Android operating system and allows for applications to launch activities such as opening another app, taking a picture, etc. App Inventor can also run this method, but to do so, it needs a new component. 
 
-![](images/initGlobalLocation.png)
++ Go back the Designer view and drag in an **ActivityStarter** component from **Connectivity**.
 
-+ In the `when ListOfPlaces.Initialize` block, add a `set global currentLocation to` block and connect it with a `get LocationSensor.CurrentAddress` block.  
+OK, time to add the last bit of code! 
 
-But what if the user's location is unavailable? To cover this possibility, you need to do a check before setting the `currentLocation` variable.
++ Go back to the Blocks view and drag in a `when ListView.AfterPicking` block.
 
-+ Put an `if then` block into `when ListOfPlaces.Initialize` and move the `set global currentLocation` code into the `then`.    
++ Create a `set ActivityStarter.Action to` block and drag a `""` block into it.
 
-+ Find the `LocationSensor.HasLongitudeLatitude` block and attach it to the `if`:
++ Inside this `""` block, write `android.intent.action.VIEW`. This is the action that you want to perform: you are telling Android that you wish to view something.
 
-![](images/getCurrentLocation.png)
+Of course you can view a lot of things: maps, websites, contacts, anything on the device. So you also need to tell the ActivityStarter what you want to view.
 
-Now you are ready to use the procedure you made to get the distance.
++ Take a `set ActivityStarter.DataURI` block and put it below the previous block.
 
-+ Insert an `initialize local name to` block (the one with a top attachment) into the `then` in your `when FireBase.GotValue`, and change `name` to `distance`. 
+You want to pass a string to this that tells Android that you want to see a map and also what location you want to see.
 
-+ You only want to use the distance formula if you know the user's location, so connect an `if then else` block (the one that has a side attachment). To the `if`, attach three blocks: `not` (Logic), `is empty` (Text), and `get global currentLocation`. 
++ Get a `join` block and connect it to a `""` block. Into this you have to type the string `geo:0,0?q=`.
 
-+ Connect a `call distanceBetween` block to the `then`. If the `currentLocation` is blank, you will just show all the places, so place a `0` Math block in the `else` to return zero as the distance.
+The `geo` part tells Android that you want a map, and the `?q=` part says that you want to see the address that follows.
 
-![](images/initDistWithLocationCheck.png)
++ Of course, you now need an address, so attach a `ListView.Selection` block.
 
-+ For one of the **parameters** (values that you pass to the function) of the `call distanceBetween`, attach a `get global currentLocation` block. For the other parameter, attach a `get value` block (remember this contains the address of the place you got from Firebase).
++ Lastly, drag an `ActivityStarter.StartActivity` block into the previous block.
 
-+ Inside the `initialize local distance to` block, add an `if then` block.
-
-You are now going to check whether the distance is less than 5km.
-
-+ Get a `<` block and a a `0` block from the Math section.
-
-+ Put a `get distance` into the first input in the `<` block, and the `0` block into the second input. Set the `0` block to `5`.
-
-+ Plug the `<` block into the `if then` block.
-
-+ Move the `add items to list` block so it is inside the `then` statement of the `if then` block.
-
-+ If everything has gone correctly, it should look like this:
-
-![](images/filteringByDistance.png)
+![](images/showLocationInMapsApp.png)

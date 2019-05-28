@@ -1,4 +1,4 @@
-title: Advanced App Inventor Sushi Cards
+title: Accessibility Map
 hero_image: images/banner.png
 description: Build an Android app that records specific locations and gives directions
 theme: green
@@ -14,7 +14,6 @@ version: 3.0.0
 last_tested: "2018-05-04"
 steps:
   - title: Introduction
-  - title: What you will need
   - title: Creating the layout
   - title: Getting the user's location
   - title: Saving data to Firebase
