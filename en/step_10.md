@@ -46,7 +46,7 @@ On the topic of working out the distances, the method you are using to work out 
 
 + How about you try to build an even better system? Look up "App Inventor working out distances" in a search engine.
 
---- /collapse
+--- /collapse ---
 
 --- collapse ---
 ---
