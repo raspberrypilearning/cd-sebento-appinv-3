@@ -1,0 +1,26 @@
+---
+title: خريطة الوصول
+hero_image: images/banner.png
+description: أنشئ تطبيق Android يسجل مواقع محددة ويعطي توجيهات
+theme: green
+listed: true
+copyedit: true
+curriculum: ''
+interests: ''
+technologies: ''
+site_areas: coderdojo, projects
+hardware: ''
+software: ''
+version: 3.0.0
+last_tested: "2018-05-04"
+steps:
+  - title: المقدمة
+  - title: خلق التصميم
+  - title: الحصول على موقع المستخدم
+  - title: حفظ البيانات إلى Firebase
+  - title: عرض البيانات في ListView
+  - title: العمل على المسافة بين موقعين
+  - title: تنفيذ إجراء للعمل على المسافات
+  - title: تصفية حسب المسافة
+  - title: عرض المواقع في تطبيق الخرائط
+  - title: إنتهيت تقريباً
