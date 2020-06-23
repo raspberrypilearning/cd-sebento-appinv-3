@@ -1,57 +1,57 @@
-## Implementing a procedure to work out distances
+## Εφαρμογή μιας διαδικασίας για τον προσδιορισμό των αποστάσεων
 
-Now that you know how to work out distance, you can make your app only show places that are within 5km of a user.
+Τώρα που γνωρίζεις πώς μπορείς να υπολογίσεις την απόσταση, μπορείς να κάνεις την εφαρμογή σου να εμφανίζει μόνο σημεία που απέχουν 5 χλμ. από έναν χρήστη.
 
-+ Drag out a **procedure** block (the result one) and call it `distanceBetween`. Click on the wrench icon in the top left-hand corner and drag two inputs into it. Name these `address1` and `address2`.
++ Σύρε ενα μπλοκ **procedure** (αυτό με το result) και ονόμασέ το `distanceBetween`. Κάνε κλικ στο εικονίδιο με το γρανάζι στην επάνω αριστερή γωνία και σύρε δύο input μέσα στο inputs. Ονόμασέ τα `address1` και `address2`.
 
 ![](images/addingInputsToProcedure.png)
 
-+ Next, from the Variables section, drag out a `initialize local name to` block (the one that has a side attachment instead of a top attachment).
++ Στη συνέχεια, από την ενότητα "Variables", σύρε ένα μπλοκ `initialize local name to` (αυτό που έχει την προεξοχή σύνδεσης πλάι αριστερά αντί στην κορυφή).
 
 ![](images/distanceProcedureStart.png)
 
-+ Add six variables to this: `lat1`, `long1`, `lat2`, `long2`, `x`, and `y`. Use the same method you used for the procedure, by clicking on the wrench icon in the corner of the `initialise local` block.
++ Πρόσθεσε σε αυτό έξι μεταβλητές: `lat1`, `long1`, `lat2`, `long2`, `x` και `y`. Χρησιμοποίησε την ίδια μέθοδο που χρησιμοποίησες για την procedure, κάνοντας κλικ στο εικονίδιο με το γρανάζι στη γωνία του μπλοκ `initialise local`.
 
-+ Now you need a way of converting text addresses into latitude and longitude coordinates. Thankfully, the LocationSensor does this, so go to the **Designer** view and add one.
++ Τώρα χρειάζεσαι έναν τρόπο μετατροπής διευθύνσεων που είναι γραμμένες ως κείμενο σε συντεταγμένες γεωγραφικού πλάτους και γεωγραφικού μήκους. Ευτυχώς, το LocationSensor το κάνει αυτό, πήγαινε στην προβολή **Designer** και πρόσθεσε ένα.
 
-+ Get two `call LocationSensor.LatitudeFromAddress` blocks. Attach a `get address1` block to one, and a `get address2` block to the other. Put these into the `lat1` and `lat2` attachments.
++ Πάρε δύο `call LocationSensor.LatitudeFromAddress` μπλοκ. Σύνδεσε ένα μπλοκ `get address1` στο ένα και ένα μπλοκ `get address2` στο άλλο. Κούμπωσέ τα στα `lat1` και `lat2` αντίστοιχα.
 
-+ Repeat the same thing with for longitude.
++ Κάνε το ίδιο πράγμα με το γεωγραφικό μήκος.
 
-+ Drag in two `0` blocks and attach these to `initialize local x to` and `initialize local y to` blocks.
++ Σύρε δύο `0` μπλοκ και κούμπωσέ τα στα `initialize local x to` και `initialize local y to` μπλοκ αντίστοιχα.
 
 ![](images/initializingVaribles.png)
 
-+ Get a `do result` block from Control, and put it into the `in` attachment of the (now very big!) `initialize local` block.
++ Πάρε ένα `do result` από το Control και κούμπωσέ το στην `in` εσοχή του (τώρα πολύ μεγάλου!) `initialize local` μπλοκ.
 
-Great! Now you need to work out the distance.
+Εξαιρετικά! Τώρα πρέπει να υπολογίσεις την απόσταση.
 
-+Get out the blocks `set x to`, `get lat1`, `get lat2`, `x`, `-`, and `0`.
++ Βγάλε τα μπλοκ `set x to`, `get lat1`, `get lat2`, `x`, `-` και `0`.
 
 ![](images/collectionOfBlocks.png)
 
-+ Place the `get lat2` and `get lat1` block into the `-` block, and place the `-` block into the `x` block.
++ Βάλε τα `get lat2` και `get lat1` μπλοκ στο μπλοκ `-`, και το μπλοκ `-` στο μπλοκ `x`.
 
 ![](images/settingUpLatitudeApprox.png)
 
-Now you’ve got the difference in latitude!
+Τώρα έχεις τη διαφορά στο γεωγραφικό πλάτος!
 
-+ Multiply this by `111` to get the distances in kilometres between the two latitudes. Then just plug that into the `set x to` block, and put the `set x to` block into the `do` section of the `do result` block.
++ Πολλαπλασίασε το αυτό με `111` για να πάρεις τις αποστάσεις σε χιλιόμετρα μεταξύ των δύο γεωγραφικών γεωγραφικών πλατών. Στη συνέχεια, απλώς συνδέστε το στο μπλοκ `set x to` και τοποθετήστε το `set x to` μπλοκ στο τμήμα `do` του μπλοκ `do result`.
 
 ![](images/latitudeDifferenceToKilometers.png)
 
-+ Do the same thing with the `set y to` block, changing `111` to `89` and `lat` to `long`.
++ Κάνε το ίδιο πράγμα με το μπλοκ `set y to`, αλλάζοντας το `111` σε `89` και το `lat` σε `long`.
 
-Perfect! With that you have the lengths of two of your triangle's sides to use in the distance formula!
+Τέλεια! Με αυτό έχεις τα μήκη των δύο πλευρών του τριγώνου σου για να τα χρησιμοποιήσεις στον τύπο της απόστασης!
 
-+ From the Math section, get the `square root` and `+` blocks along with two `^`(power) blocks and two `0` blocks.
++ Από το τμήμα Math, πάρε τα μπλοκ `square root` (τετραγωνική ρίζα) και `+` μαζί με δύο μπλοκ `^`(ύψωση σε δύναμη) και δύο μπλοκ `0`.
 
-+ Put a `get x` into the left input of one of the `^` blocks, and put a `get y` into the left input of another. Put the `0` blocks into the `^` block also, with `0` changed to `2`.
++ Βάλε ένα `get x` στην αριστερή εσοχή ενός από τα `^` μπλοκ, και βάλε ένα `get y` στην αριστερή εσοχή του άλλου. Βάλε επίσης τα μπλοκ `0` στα μπλοκ `^`, με το `0` να αλλάζει σε `2`.
 
-This will square both `x` and `y` (`x` squared is `x` times `x`, meaning `x^2 = x * x`).
+Αυτό θα τετραγωνίσει τόσο το `χ` όσο και το `y` (`χ` τετράγωνο είναι `χ` φορές το `χ`, που σημαίνει `x ^ 2 = x * x`).
 
-+ Place both `^` blocks into the `+` block and attach this to the `square root` block. Finally, plug this into the result attachment. ![](images/preformingPythagorasTheorem.png)
++ Τοποθέτησε και τα δύο μπλοκ `^` στο μπλοκ `+` και κούμπωσε το τελευταίο στο μπλοκ `square root`. Τέλος, κούμπωσέ το αυτό στην εσοχή result. ![](images/preformingPythagorasTheorem.png)
 
-Here is what your finished `distanceBetween` procedure should look like:
+Να πώς θα πρέπει να είναι η ολοκληρωμένη διαδικασία `distanceBetween`:
 
 ![](images/distanceBetweenFull.png)
