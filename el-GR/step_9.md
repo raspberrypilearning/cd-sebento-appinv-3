@@ -1,33 +1,33 @@
-## Showing locations in a maps app
+## Εμφάνιση τοποθεσιών σε μια εφαρμογή χαρτών
 
-Wow! You’ve done so much, and the app is nearly finished. The last thing to do is to show people how they can get to a place.
+Ουάου! Έχεις κάνει τόσο πολλά και η εφαρμογή έχει σχεδόν τελειώσει. Το τελευταίο πράγμα που πρέπει να κάνεις είναι να δείξεις στους ανθρώπους πώς μπορούν να φτάσουν σε ένα μέρος.
 
-In programming they say everyone builds "standing on the shoulders of giants". This means that you create programs by using what has already been done. In your case, to give people directions to a place, it would be best to use a maps application that's already installed.
+Στον προγραμματισμό λένε ότι ο καθένας που χτίζει "στέκεται στους ώμους γιγάντων". Αυτό σημαίνει ότι δημιουργείς προγράμματα χρησιμοποιώντας πράγματα που έχουν ήδη γίνει. Στην περίπτωσή σου για να δώσεις οδηγίες για μια τοποθεσία, θα ήταν καλύτερα να χρησιμοποιήσεις μια εφαρμογή χαρτών που είναι ήδη εγκαταστημένη.
 
-On Android, this can be done by using the **StartActivity** method. This is part of the Android operating system and allows for applications to launch activities such as opening another app, taking a picture, etc. App Inventor can also run this method, but to do so, it needs a new component.
+Στο Android, αυτό μπορεί να γίνει χρησιμοποιώντας τη μέθοδο **StartActivity**. Αυτό είναι μέρος του λειτουργικού συστήματος Android και επιτρέπει στις εφαρμογές να ξεκινήσουν δραστηριότητες όπως το άνοιγμα μιας άλλης εφαρμογής, τη λήψη φωτογραφίας κ. λπ. Το App Inventor μπορεί επίσης να εκτελέσει αυτήν τη μέθοδο, αλλά για να το κάνει χρειάζεται ένα νέο στοιχείο.
 
-+ Go back the Designer view and drag in an **ActivityStarter** component from **Connectivity**.
++ Επέστρεψε στην προβολή Designer και σύρε ένα στοιχείο **ActivityStarter** από το **Connectivity**.
 
-OK, time to add the last bit of code!
+ΟΚ, ήρθε η ώρα να προσθέσεις το τελευταίο κομμάτι κώδικα!
 
-+ Go back to the Blocks view and drag in a `when ListView.AfterPicking` block.
++ Πήγαινε πίσω στην προβολή Blocks και σύρε ένα `when ListView.AfterPicking` μπλοκ.
 
-+ Create a `set ActivityStarter.Action to` block and drag a `""` block into it.
++ Δημιούργησε ένα `set ActivityStarter.Action to` μπλοκ και σύρε ένα μπλοκ `""` σε αυτό.
 
-+ Inside this `""` block, write `android.intent.action.VIEW`. This is the action that you want to perform: you are telling Android that you wish to view something.
++ Μέσα σε αυτό το `""` μπλοκ, γράψε `android.intent.action.VIEW`. Αυτή είναι η ενέργεια που θέλεις να εκτελέσεις: λες στο Android ότι θέλεις να δεις κάτι.
 
-Of course you can view a lot of things: maps, websites, contacts, anything on the device. So you also need to tell the ActivityStarter what you want to view.
+Φυσικά μπορείς να δεις πολλά πράγματα: χάρτες, ιστότοπους, επαφές, ο, τιδήποτε στη συσκευή. Επομένως πρέπει επίσης να πεις στο ActivityStarter τι θέλεις να δεις.
 
-+ Take a `set ActivityStarter.DataURI` block and put it below the previous block.
++ Πάρε ένα `set ActivityStarter.DataURI` και βάλτο κάτω από το προηγούμενο μπλοκ.
 
-You want to pass a string to this that tells Android that you want to see a map and also what location you want to see.
+Θέλεις να περάσεις μια συμβολοσειρά σε αυτό που να λέει στο Android ότι θέλεις να δεις έναν χάρτη και επίσης ποια τοποθεσία θέλεις να δεις.
 
-+ Get a `join` block and connect it to a `""` block. Into this you have to type the string `geo:0,0?q=`.
++ Πάρε ένα μπλοκ `join` και κούμπωσέ το σε ένα μπλοκ `""`. Σε αυτό πρέπει να πληκτρολογήσεις τη συμβολοσειρά `geo:0,0?q=`.
 
-The `geo` part tells Android that you want a map, and the `?q=` part says that you want to see the address that follows.
+Το τμήμα `geo` λέει στο Android ότι θέλεις έναν χάρτη και το τμήμα `? Q =` λέει ότι θέλεις να δεις τη διεύθυνση που ακολουθεί.
 
-+ Of course, you now need an address, so attach a `ListView.Selection` block.
++ Φυσικά τώρα χρειάζεσαι μια διεύθυνση, οπότε κούμπωσε ένα μπλοκ `ListView.Selection`.
 
-+ Lastly, drag an `ActivityStarter.StartActivity` block into the previous block.
++ Τέλος σύρε ένα `call ActivityStarter.StartActivity` μπλοκ μέσα στο προηγούμενο μπλοκ.
 
 ![](images/showLocationInMapsApp.png)
