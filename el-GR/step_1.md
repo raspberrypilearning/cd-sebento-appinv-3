@@ -1,40 +1,40 @@
-## Introduction
+## Εισαγωγή
 
-These are the advanced App Inventor Sushi Cards. In them you'll learn how to add cool features like location and maps to your Android app.
+Αυτές είναι οι προηγμένες Sushi κάρτες για το App Inventor. Με αυτές θα μάθεις πώς μπορείς να προσθέσεις εντυπωσιακές λειτουργίες όπως μια τοποθεσία και κάποιον χάρτη στην εφαρμογή Android σου.
 
-### What you will make
+### Τι θα φτιάξεις
 
-You will make an app that people can use to find accessible places near them and and even have their device open up a map showing the location of a selected place.
+Θα φτιάξεις μια εφαρμογή την οποία μπορούν να χρησιμοποιούν οι χρήστες για να βρουν προσβάσιμα μέρη κοντά τους. Επιπλέον η συσκευή τους θα ανοίγει έναν χάρτη που θα δείχνει τη θέση ενός επιλεγμένου τόπου.
 
 ![](images/all app.png)
 
 --- collapse ---
 ---
-title: What you will learn
+title: Τι θα μάθεις
 ---
 
-+ Using Layout Arrangements
-+ Adding images
-+ Getting a user's location
-+ Showing and hiding elements
-+ Waiting for lengths of times
-+ Saving and retrieving online data with other users
-+ Communicating with other apps
++ Να χρησιμοποιείς ρυθμίσεις διάταξης
++ Να προσθέτεις εικόνες
++ Να λαμβάνεις τη θέση του χρήστη
++ Να εμφανίζεις και να αποκρύπτεις στοιχεία
++ Να αναμένεις για κάποια χρονικά διαστήματα
++ Να αποθηκεύεις και να ανακτάς δεδομένα στο διαδίκτυο με άλλους χρήστες
++ Να επικοινωνείς με άλλες εφαρμογές
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: What you will need
+title: Τι θα χρειαστείς
 ---
 
-### Hardware
+### Υλικό (Hardware)
 
-+ A computer capable of accessing App Inventor
-+ An internet connection
++ Έναν υπολογιστή που έχει πρόσβαση στο App Inventor
++ Σύνδεση στο διαδίκτυο
 
-**Optional:**
+**Προαιρετικά:**
 
-+ An Android phone or tablet
++ Ένα τηλέφωνο ή tablet Android
 
 --- /collapse ---
