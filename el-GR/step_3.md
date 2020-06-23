@@ -1,58 +1,58 @@
-## Getting the user's location
+## Λήψη της τοποθεσίας του χρήστη
 
-If you want to know where the accessible places near you are, you are going to need users to add their locations to your app. Luckily, App Inventor has a **LocationSensor** component that detects a user's location.
+Εάν θέλεις να μάθεις πού βρίσκονται τα προσβάσιμα μέρη κοντά σου, θα χρειαστείς χρήστες για να προσθέσουν τις τοποθεσίες τους στην εφαρμογή σου. Ευτυχώς, το App Inventor έχει το στοιχείο **LocationSensor** που εντοπίζει την τοποθεσία του χρήστη.
 
-+ On the "AddPlace" screen, drag a LocationSensor from **Sensors** onto your app.
++ Στην οθόνη "AddPlace", σύρε ένα στοιχείο LocationSensor από την κατηγορία **Sensors** στην εφαρμογή σου.
 
-You’re now going to get the user’s location and put it into the **TextBox**.
+Τώρα θα λάβεις τη θέση του χρήστη και θα τη βάλεις στο **TextBox**.
 
-+ Switch over to the Blocks view and drag two `when Button.Click` blocks onto the screen.
++ Πήγαινε στην προβολή "Blocks" και σύρε δύο `when Button.Click` μπλοκ στην οθόνη.
 
 --- collapse ---
 ---
-title: Renaming components
+title: Μετονομασία στοιχείων
 ---
 
-I like giving my components identifiable names.
+Μου αρέσει να δίνω στα συστατικά της εφαρμογής μου αναγνωρίσιμα ονόματα.
 
-+ In the Designer view, click on the component. At the bottom of the **Components** section, click **Rename**.
++ Στην προβολή Designer κάνε κλικ στο στοιχείο που θες. Στο κάτω μέρος της ενότητας **Components**, κάνε κλικ στο **Rename**.
 
-+ I called my Buttons "currentLocation" and "Save".
++ Ονόμασα τα κουμπιά μου "currentLocation" και "Save".
 
 --- /collapse ---
 
-+ Drag a `set TextBox.Text` block onto the screen and put it in your "Current Location" Button.
++ Σύρε το `set TextBox.Text` μπλοκ στην οθόνη και βάλτο στο κουμπί με την ονομασία "Current Location".
 
-+ Now drag a `LocationSensor.CurrentAddress` block out and attach it to the `set TextBox.Text` block.
++ Τώρα σύρε ένα `LocationSensor.CurrentAddress` μπλοκ έξω και κούμπωσέ το στο μπλοκ `set TextBox.Text`.
 
 ![](images/getUserLocation.png)
 
-Great! Now when you click on "GetLocation", the TextBox’s text will be set to your current address from the LocationSensor.
+Εξαιρετικά! Τώρα όταν κάνεις κλικ στο κουμπί "GetLocation", το κείμενο του TextBox θα οριστεί στην τρέχουσα διεύθυνση σου από το LocationSensor.
 
-You need to be careful though: it's a good idea to check that there is always an address in the TextBox before adding a new place! You need to **validate the input**.
+Πρέπει όμως να είσαι προσεκτικός: είναι καλή ιδέα να ελέγχεις ότι υπάρχει πάντα μια διεύθυνση στο TextBox πριν προσθέσεις μια νέα θέση! Θα πρέπει **επικυρώσεις τα εισαγόμενα στοιχεία**.
 
-+ Drag out an `if, then, else` block, and put it into the `when Save.Click` block.
++ Σύρε ένα `if, then, else` μπλοκ, και βάλτο στο `when Save.Click` μπλοκ.
 
-+ Now you need to make the `if` condition check if the TextBox has text in it. Drag out an `is empty` block, and attach it to a `TextBox.text` block.
++ Τώρα πρέπει να κάνεις την συνθήκη `if` να ελέγχει εάν το TextBox περιέχει κείμενο. Σύρε ένα `is empty` μπλοκ και κούμπωσέ το σε ένα block `TextBox.text`.
 
-+ OK, now you can check whether the TextBox is empty, but you want to check if it is **not** empty. To do this, get a `not` block out and put it before the `is empty` block.
++ Εντάξει, τώρα μπορείς να ελέγχεις αν το TextBox είναι άδειο, αλλά θέλεις να ελέγχεις αν **δεν** είναι άδειο. Για να το κάνεις αυτό, πάρε ένα `not` μπλοκ και βάλε το πριν το `is empty` μπλοκ.
 
 ![](images/checkIfTextBoxEmpty.png)
 
-One last thing: you need to tell the user that the TextBox is empty.
+Ένα τελευταίο πράγμα: πρέπει να πεις στο χρήστη ότι το TextBox είναι κενό.
 
-+ Switch over to the Designer view and drag a Label into the app. Give it a warning message and set the text color to red. Finally, uncheck the **Visible** checkbox.
++ Πήγαινε στην προβολή Designer και σύρε ένα Label στην εφαρμογή. Δώσε του ένα προειδοποιητικό μήνυμα και όρισε το χρώμα του κειμένου σε κόκκινο. Τέλος, αποεπίλεξε το πλαίσιο ελέγχου **Visible**.
 
-+ You'll want to show this label for a second, so you are going to need a **Clock**. Drag one out from Sensors — it will appear with the other non-visible components below the app screen.
++ Θα θέλεις να εμφανίζεται αυτή η ετικέτα (Label) για ένα δευτερόλεπτο, οπότε θα χρειαστείς ένα ρολόι **Clock**. Σύρε το έξω από την κατηγορία Sensors - θα εμφανιστεί με τα άλλα μη ορατά συστατικά κάτω από την οθόνη της εφαρμογής.
 
-+ Uncheck the clock's **TimerEnabled** checkbox so it doesn’t fire right away!
++ Αποεπίλεξε το πλαίσιο ελέγχου **TimerEnabled** του ρολογιού ώστε να μην ξεκινήσει αμέσως!
 
-+ Back in the Blocks view, drag a `set Label.Visible` and a `set Clock.TimerEnabled` block out and attach both of them to `true` blocks. Then put both in the `else` statement.
++ Πίσω στην προβολή Blocks, σύρε ένα `set Label.Visible` και ένα `set Clock.TimerEnabled` μπλοκ και κούμπωσέ τα και τα δύο με δύο `true` μπλοκ. Στη συνέχεια, βάλτα και τα δύο στην εντολή `else`.
 
 ![](images/saveClickElse.png)
 
-Nearly there! Now, if there is no text in the **TextBox**, your warning label will become visible and your clock will be enabled. You just need to make the label invisible again after about a second, so the user doesn't have to keep looking at it.
+Σχεδόν τελείωσες! Τώρα, εάν δεν υπάρχει κείμενο στο **TextBox**, η προειδοποιητική σου ετικέτα θα γίνει ορατή και το ρολόι σου θα ενεργοποιηθεί. Απλά πρέπει να κάνεις την ετικέτα αόρατη και πάλι μετά από περίπου ένα δευτερόλεπτο, για να μην αναγκάζεται ο χρήστης να τη βλέπει συνεχώς.
 
-+ Take out a `when Clock.Timer` block and duplicate the two blocks you just made. Change `true` to `false` and put duplicate blocks inside the `when Clock.Timer` block.
++ Βγάλε ένα `when Clock.Timer` μπλοκ και κάνε αντιγραφή (duplicate) τα δύο μπλοκ που μόλις δημιούργησες. Άλλαξε το `true` σε `false` και βάλε τα δύο αντίγραφα μέσα στο `when Clock.Timer` μπλοκ.
 
 ![](images/hideLabel.png)
