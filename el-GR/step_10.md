@@ -1,22 +1,22 @@
-## Wrapping Up
+## Ολοκληρώνοντας
 
-You’ve finished — you now have a app that can add locations of accessible places to a shared database and then show people the places in the database that are near to them.
+Έχετε τελειώσει - έχετε τώρα μια εφαρμογή που μπορεί να προσθέσει τοποθεσίες προσβάσιμων χώρων σε μια κοινόχρηστη βάση δεδομένων και στη συνέχεια να δείξει στους ανθρώπους τα μέρη της βάσης δεδομένων που βρίσκονται κοντά τους.
 
-But wait! One last thing!
+Αλλά περίμενε! Ενα τελευταίο πράγμα!
 
-+ You need to let people go from one screen to another by clicking the buttons. I’ll let you see can you figure it out.
++ Πρέπει να αφήσεις τους ανθρώπους να πάνε από μια οθόνη στην άλλη κάνοντας κλικ στα κουμπιά. Θα σου δώσω τη δυνατότητα να το βρεις μόνος σου.
 
 --- hints ---
 
 --- hint ---
 
-+ You'll need to add code to the `Button.Click` block of the buttons. Look in the Control blocks!
++ Θα χρειαστεί να προσθέσεις κώδικα στο μπλοκ `Button.Click` των κουμπιών. Κοιτάξτε στα μπλοκ Control!
 
 --- /hint ---
 
 --- hint ---
 
-+ Here is the code you need to add to the home screen:
++ Εδώ είναι ο κώδικας που πρέπει να προσθέσεις στην αρχική οθόνη:
 
 ![](images/navigationCode.png)
 
@@ -24,46 +24,46 @@ But wait! One last thing!
 
 --- /hints ---
 
-+ Now all that is left for you to do is to test it! Go to **Connection** menu and then select either the emulator, AICompanion, or whichever other method applies to you.
++ Τώρα το μόνο που έχει απομείνει είναι η δοκιμή! Πήγαινε στο μενού **Connection** και, στη συνέχεια, επέλεξε είτε τον εξομοιωτή είτε το AICompanion ή όποια άλλη μέθοδο ταιριάζει στην περίπτωσή σου.
 
-That's it — you're done! I wonder what else you can do now with all the things you have learned. Below are just a few suggestions, but you could think of cooler ideas yourself.
+Αυτό είναι - τελείωσες! Αναρωτιέμαι τι άλλο μπορείς να κάνεις τώρα με όλα αυτά τα πράγματα που έχεις μάθει. Παρακάτω είναι μερικές μόνο προτάσεις, αλλά μπορείς να σκεφτείς πιο πρωτότυπες ιδέες μόνος σου.
 
 --- collapse ---
 ---
-title: Show the distance to places
+τίτλος: Εμφάνιση της απόστασης των τοποθεσιών
 ---
 
-+ At the moment, you get rid of all places that are further than 5km, but the user can’t see the distance to an individual place. How about adding another Label to the list containing the distance to that place!
++ Προς το παρόν ξεφορτώθηκες όλα τα σημεία που απέχουν περισσότερο από 5 χιλιόμετρα, αλλά ο χρήστης δεν μπορεί να δει την απόσταση μιας συγκεκριμένης τοποθεσίας. Τι θα έλεγες να πρόσθετες ένα επιπλέον Label στη λίστα που περιέχει την απόσταση εκείνης της τοποθεσίας!
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Better distance calculation
+τίτλος: Καλύτερος υπολογισμός απόστασης
 ---
 
-On the topic of working out the distances, the method you are using to work out distance in these cards is a bit inaccurate.
+Σχετικά με την επεξεργασία των αποστάσεων, η μέθοδος που χρησιμοποιείς για να υπολογίσεις την απόσταση σε αυτές τις κάρτες είναι λίγο ανακριβής.
 
-+ How about you try to build an even better system? Look up "App Inventor working out distances" in a search engine.
++ Τι θα έλεγες να προσπαθήσεις να δημιουργήσεις ένα ακόμη καλύτερο σύστημα υπολογισμού; Αναζήτησε το "App Inventor working out distances" σε μια μηχανή αναζήτησης.
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Use a map instead of typing addresses
+τίτλος: Χρησιμοποίησε έναν χάρτη αντί για την πληκτρολόγηση διευθύνσεων
 ---
 
-+ Or maybe you could add a map to the "AddPlace" screen. At the moment, you have to type in an address, but what if you could just find it on a map. That would be even cooler!
++ Ή ίσως θα μπορούσες να προσθέσεις έναν χάρτη στην οθόνη "AddPlace". Προς το παρόν πρέπει να πληκτρολογήσεις μια διεύθυνση, αλλά τι γίνεται αν θα μπορούσες να την εντοπίσεις πάνω σε ένα χάρτη. Αυτό θα ήταν ακόμη πιο ωραίο!
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Make a different app!
+title: Δημιούργησε μια διαφορετική εφαρμογή!
 ---
 
-+ There is no reason to keep working on this app if you don't want to. The possibilities are endless! With the same blocks, you could use Firebase to make a messaging app or take advantage of the Clock to make your own alarm clock!
++ Δεν υπάρχει λόγος να συνεχίσεις να εργάζεσαι σε αυτή την εφαρμογή, αν δεν θέλεις. Οι δυνατότητες είναι ατελείωτες! Με τα ίδια μπλοκ, μπορείς να χρησιμοποιήσεις τη Firebase για να δημιουργήσεις μια εφαρμογή ανταλλαγής μηνυμάτων ή να επωφεληθείς από το ρολόι για να φτιάξεις το δικό σου ξυπνητήρι!
 
 --- /collapse ---
 
-You can see an example of this app on App Inventor at [dojo.soy/advancedapp](http://dojo.soy/advancedapp){:target="_blank"}.
+Μπορείς να δεις ένα παράδειγμα αυτής της εφαρμογής στο App Inventor στο [dojo.soy/advancedapp](http://dojo.soy/advancedapp){: target = "_ blank"}.
