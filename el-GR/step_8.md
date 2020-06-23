@@ -1,47 +1,47 @@
-## Filtering by distance
+## Φιλτράρισμα κατά απόσταση
 
-Great! You now have a procedure that can work out the distance between two addresses. Next you'll add this to your `when FireBase.GotValue` function.
+Εξαιρετικά! Τώρα έχεις μια διαδικασία που μπορεί να μετρήσει την απόσταση μεταξύ δύο διευθύνσεων. Στη συνέχεια, θα την προσθέσεις στη συνάρτηση `when FireBase.GotValue`.
 
-For this you of course need two addresses: the address of the accessible place and your address (the address of the app user).
+Για αυτό χρειάζεσαι φυσικά δύο διευθύνσεις: τη διεύθυνση του προσβάσιμου χώρου και τη διεύθυνσή σου (τη διεύθυνση του χρήστη της εφαρμογής).
 
-+ First you should get your current location. As you will be using this value multiple times, it's a good idea to store it as a variable. Add an `initialize global name to` block, change its name to `currentLocation`, and set it to an empty text block.
++ Πρώτα θα πρέπει να πάρεις την τρέχουσα θέση σου. Καθώς θα χρησιμοποιήσεις αυτήν την τιμή πολλές φορές, είναι καλή ιδέα να την αποθηκεύσεις ως μεταβλητή. Πρόσθεσε ένα `initialize global name to` μπλοκ, άλλαξε το όνομά του σε `currentLocation` και προσάρτησέ το σε ένα κενό μπλοκ κειμένου.
 
 ![](images/initGlobalLocation.png)
 
-+ In the `when ListOfPlaces.Initialize` block, add a `set global currentLocation to` block and connect it with a `get LocationSensor.CurrentAddress` block.
++ Στο `when ListOfPlaces.Initialize` μπλοκ, πρόσθεσε ένα `set global currentLocation to` μπλοκ και σύνδεσέ το με ένα `LocationSensor.CurrentAddress` μπλοκ.
 
-But what if the user's location is unavailable? To cover this possibility, you need to do a check before setting the `currentLocation` variable.
+Αλλά τι γίνεται αν η θέση του χρήστη δεν είναι διαθέσιμη; Για να καλύψεις αυτή τη πιθανότητα, πρέπει να κάνεις έναν έλεγχο πριν ορίσεις τη μεταβλητή `currentLocation`.
 
-+ Put an `if then` block into `when ListOfPlaces.Initialize` and move the `set global currentLocation` code into the `then`.
++ Βάλε ένα `if then` μπλοκ στο `when ListOfPlaces.Initialize` και μετακίνησε τον `set global currentLocation` κώδικα στο `then`.
 
-+ Find the `LocationSensor.HasLongitudeLatitude` block and attach it to the `if`:
++ Βρεςτο μπλοκ `LocationSensor.HasLongitudeLatitude` και κούμπωσέ το στο `εάν`:
 
 ![](images/getCurrentLocation.png)
 
-Now you are ready to use the procedure you made to get the distance.
+Τώρα είσαι έτοιμος να χρησιμοποιήσεις τη διαδικασία που δημιούργησες για να πάρεις την απόσταση.
 
-+ Insert an `initialize local name to` block (the one with a top attachment) into the `then` in your `when FireBase.GotValue`, and change `name` to `distance`.
++ Εισήγαγε ένα `initialize local name to` μπλοκ (αυτό με την προεξοχή σύνδεσης στην κορυφή) στο `then` στο `when FireBase.GotValue` και άλλαξε το `name` σε `distance`.
 
-+ You only want to use the distance formula if you know the user's location, so connect an `if then else` block (the one that has a side attachment). To the `if`, attach three blocks: `not` (Logic), `is empty` (Text), and `get global currentLocation`.
++ Θέλεις να χρησιμοποιήσεις τον τύπο υπολογισμού της απόστασης, αν γνωρίζεις μόνο τη θέση του χρήστη, οπότε κούμπωσε ένα μπλοκ `if then else` (αυτό που έχει την εσοχή σύνδεσης στο πλάι). Στο `if`, κούμπωσε τρία μπλοκς: `not` (Logic), `is empty` (Text), και `get global currentLocation`.
 
-+ Connect a `call distanceBetween` block to the `then`. If the `currentLocation` is blank, you will just show all the places, so place a `0` Math block in the `else` to return zero as the distance.
++ Κούμπωσε ένα `call distanceBetween` μπλοκ στο `then`. Αν το `currentLocation` είναι κενό, θα εμφανίσει όλες τις τοποθεσίες, έτσι βάλε ένα `0` από το Math στο `else` για να επιστρέψει το μηδέν ως απόσταση.
 
 ![](images/initDistWithLocationCheck.png)
 
-+ For one of the **parameters** (values that you pass to the function) of the `call distanceBetween`, attach a `get global currentLocation` block. For the other parameter, attach a `get value` block (remember this contains the address of the place you got from Firebase).
++ Ως μία από τις **παραμέτρους** (τιμές που περνάνε στη συνάρτηση) `call distanceBetween`, κούμπωσε ένα `get global currentLocation` μπλοκ. Για την άλλη παράμετρο, κούμπωσε ένα `get value` μπλοκ (θυμήσου ότι αυτή περιέχει τη διεύθυνση της τοποθεσίας που πήρες από τη Firebase).
 
-+ Inside the `initialize local distance to` block, add an `if then` block.
++ Μέσα στο `initialize local distance to` μπλοκ, πρόσθεσε ένα μπλοκ `if then`.
 
-You are now going to check whether the distance is less than 5km.
+Τώρα θα ελέγξεις αν η απόσταση είναι μικρότερη από 5 χιλιόμετρα.
 
-+ Get a `<` block and a a `0` block from the Math section.
++ Πάρτε ένα `<` μπλοκ και ένα `0` μπλοκ από το τμήμα Math.
 
-+ Put a `get distance` into the first input in the `<` block, and the `0` block into the second input. Set the `0` block to `5`.
++ Βάλε ένα `get distance` μπλοκ στην πρώτη εσοχή στο μπλοκ `<` και το μπλοκ `0` στη δεύτερη είσοδο. Άλλαξε το μπλοκ `0` σε `5`.
 
-+ Plug the `<` block into the `if then` block.
++ Κούμπωσε το μπλοκ `<` στο μπλοκ `if then`.
 
-+ Move the `add items to list` block so it is inside the `then` statement of the `if then` block.
++ Μετακίνησε το `add items to list` μπλοκ έτσι ώστε να είναι μέσα στην `then` δήλωση του μπλοκ `if then`.
 
-+ If everything has gone correctly, it should look like this:
++ Εάν όλα έχουν πάει σωστά, θα πρέπει να είναι κάπως έτσι:
 
 ![](images/filteringByDistance.png)
