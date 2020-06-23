@@ -1,37 +1,37 @@
-## Working out the distance between two locations
+## Μαθαίνοντας την απόσταση μεταξύ δύο θέσεων
 
-Don’t worry, I’ll kept the maths to a minimum. You’ll have no problem understanding it, and anyway, you’re going to be programming a computer to do the maths for you!
+Μην ανησυχείς, θα κρατήσω τα μαθηματικά στο ελάχιστο. Δεν θα έχεις κανένα πρόβλημα κατανόησης και όπως και να'χει, πρόκειται να προγραμματίσεις έναν υπολογιστή για να κάνει τα μαθηματικά για σένα!
 
-What you want is to only show places that are close to where a user currently is. To do this, you need to find the distance between two addresses.
+Αυτό που θέλεις είναι να εμφανίζονται μόνο οι τοποθεσίες που βρίσκονται κοντά στην τρέχουσα τοποθεσία ενός χρήστη. Για να γίνει αυτό, πρέπει να βρεις την απόσταση μεταξύ δύο διευθύνσεων.
 
-To explain how this works, I'll be talking about three things:
-  1. Latitude
-  1. Longitude
-  1. An old guy named Pythagoras
+Για να εξηγήσω πώς λειτουργεί αυτό, θα μιλήσω για τρία πράγματα:
+  1. για το γεωγραφικό πλάτος
+  1. το γεωγραφικό μήκος
+  1. και για έναν αρχαίο τύπο που λεγόταν Πυθαγόρας
 
-### Latitude and longitude
-Latitude and longitude are geographic coordinates. They allow for the position of places to be described using numbers.
+### Γεωγραφικό πλάτος και γεωγραφικό μήκος
+Το γεωγραφικό πλάτος και το γεωγραφικό μήκος είναι γεωγραφικές συντεταγμένες. Επιτρέπουν τη περιγραφή της θέσης των τοποθεσιών χρησιμοποιώντας αριθμούς.
 
-   **Example:** The Spire, Dublin, Ireland is located at 53.3498° N (latitude), 6.2603°W (longitude)
+   **Παράδειγμα:** Το Spire, Δουβλίνο, Ιρλανδία βρίσκεται σε 53,3498 ° Β (γεωγραφικό πλάτος), 6,2603 ° Δ (γεωγραφικό μήκος)
 
-+ On average, the distance between two lines of latitude (i.e. The distance between something at 53° to something at 54°) is 111 kilometers (69 miles).
++ Κατά μέσο όρο, η απόσταση μεταξύ δύο γραμμών γεωγραφικού πλάτους (δηλαδή η απόσταση μεταξύ κάτι που βρίσκεται στο 53° και στο 54°) είναι 111 χιλιόμετρα (69 μίλια).
 
-+ The average distance between two lines of longitude is 89 kilometers (55 miles).
++ Η μέση απόσταση μεταξύ δύο γραμμών γεωγραφικού μήκους είναι 89 χιλιόμετρα (55 μίλια).
 
-Great! So now if you know the latitude and longitude of two points, you can find the distance their latitude and longitude lines are apart.
+Εξαιρετικά! Επομένως, αν γνωρίζεις το γεωγραφικό πλάτος και το γεωγραφικό μήκος δύο σημείων, μπορείς να βρεις την απόσταση των γραμμών γεωγραφικού πλάτους και γεωγραφικού μήκους που έχουν μεταξύ τους.
 
-### That Pythagoras guy
+### Αυτός ο Πυθαγόρας που λέγαμε
 
-+ You might want to draw out this next bit! What you have right now is the length of two lines, and what you want is the length of the line that connects the tops of these two lines.
++ Ίσως θα θέλεις να σχεδιάσεις αυτό το επόμενο κομμάτι! Αυτό που θα έχεις τώρα είναι το μήκος δύο γραμμών και αυτό που θέλεις είναι το μήκος της γραμμής που συνδέει τις κορυφές αυτών των δύο γραμμών.
 
 ![](images/latitudeLongitudeDiagram.png)
 
-You are in luck! In the 500s BC, there lived a mathematician named Pythagoras. He discovered that by knowing the lengths of two sides of a triangle (since what you have is a triangle), you can work out the length of the third side.
+Είσαι τυχερός! Το 500 π. Χ. ζούσε ένας μαθηματικός με το όνομα Πυθαγόρας. Ανακάλυψε ότι γνωρίζοντας τα μήκη των δύο πλευρών ενός τριγώνου (μιας και αυτό που έχεις είναι ένα τρίγωνο), μπορείς να υπολογίσεις το μήκος της τρίτης πλευράς.
 
-He came up with this equation ![](images/pythagorasTheorem.png)  where Z is the largest side
+Σκέφτηκε αυτή την εξίσωση ![](images/pythagorasTheorem.png)  όπου το Z είναι η μεγαλύτερη πλευρά
 
-+ So with this in mind, we can insert our values into this equation to calculate the length of the line we're interested in: ![](images/pythagorasTheorem1.png) ![](images/pythagorasTheorem2.png) ![](images/pythagorasTheorem3.png) ![](images/pythagorasTheorem4.png) ![](images/pythagorasTheorem5.png)
++ Με αυτό στο νου, μπορούμε να εισαγάγουμε τις τιμές μας σε αυτήν την εξίσωση για να υπολογίσουμε το μήκος της γραμμής που μας ενδιαφέρει: ![](images/pythagorasTheorem1.png) ![](images/pythagorasTheorem2.png) ![](images/pythagorasTheorem3.png) ![](images/pythagorasTheorem4.png) ![](images/pythagorasTheorem5.png)
 
-Tada! With this method, you can work out the distance between any person and the location of an accessible place! Pretty cool, right?
+Ιδού! Με αυτή τη μέθοδο, μπορείς να υπολογίσεις την απόσταση μεταξύ οποιουδήποτε χρήστη και της τοποθεσίας ενός προσβάσιμου χώρου! Εντυπωσιακό δεν είναι;
 
-On the next card, you will write a **procedure** that does this calculation for you.
+Στην επόμενη κάρτα, μπορείς να γράψεις μια **διαδικασία** που θα κάνει αυτόν τον υπολογισμό για σένα.
