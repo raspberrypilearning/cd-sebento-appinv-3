@@ -1,3 +1,4 @@
+---
 title: Accessibility Map
 hero_image: images/banner.png
 description: Build an Android app that records specific locations and gives directions
@@ -11,15 +12,17 @@ site_areas: coderdojo, projects
 hardware: ''
 software: ''
 version: 3.0.0
-last_tested: "2018-05-04"
+last_tested: '2018-05-04'
 steps:
-  - title: Introduction
-  - title: Creating the layout
-  - title: Getting the user's location
-  - title: Saving data to Firebase
-  - title: Displaying data in the ListView
-  - title: Working out the distance between two locations
-  - title: Implementing a procedure to work out distances
-  - title: Filtering by distance
-  - title: Showing locations in a maps app
-  - title: Wrapping Up
+- title: Introduction
+  completion: engaged
+- title: Creating the layout
+- title: Getting the user's location
+- title: Saving data to Firebase
+- title: Displaying data in the ListView
+- title: Working out the distance between two locations
+- title: Implementing a procedure to work out distances
+- title: Filtering by distance
+- title: Showing locations in a maps app
+  completion: internal
+- title: Wrapping Up
