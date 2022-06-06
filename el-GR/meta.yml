@@ -16,14 +16,16 @@ version: 3.0.0
 last_tested: '2018-05-04'
 steps:
 - title: Εισαγωγή
-  completion: engaged
 - title: Δημιουργία της διάταξης
 - title: Λήψη της τοποθεσίας του χρήστη
+  completion:
+  - engaged
 - title: Αποθήκευση δεδομένων στη Firebase
 - title: Εμφάνιση δεδομένων στο ListView
 - title: Μαθαίνοντας την απόσταση μεταξύ δύο θέσεων
 - title: Εφαρμογή μιας διαδικασίας για τον προσδιορισμό των αποστάσεων
 - title: Φιλτράρισμα κατά απόσταση
 - title: Εμφάνιση τοποθεσιών σε μια εφαρμογή χαρτών
-  completion: internal
+  completion:
+  - internal
 - title: Ολοκληρώνοντας

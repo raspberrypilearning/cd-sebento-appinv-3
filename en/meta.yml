@@ -15,14 +15,16 @@ version: 3.0.0
 last_tested: '2018-05-04'
 steps:
 - title: Introduction
-  completion: engaged
 - title: Creating the layout
 - title: Getting the user's location
+  completion:
+  - engaged
 - title: Saving data to Firebase
 - title: Displaying data in the ListView
 - title: Working out the distance between two locations
 - title: Implementing a procedure to work out distances
 - title: Filtering by distance
 - title: Showing locations in a maps app
-  completion: internal
+  completion:
+  - internal
 - title: Wrapping Up

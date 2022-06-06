@@ -15,14 +15,16 @@ version: 3.0.0
 last_tested: '2018-05-04'
 steps:
 - title: المقدمة
-  completion: engaged
 - title: خلق التصميم
 - title: الحصول على موقع المستخدم
+  completion:
+  - engaged
 - title: حفظ البيانات إلى Firebase
 - title: عرض البيانات في ListView
 - title: العمل على المسافة بين موقعين
 - title: تنفيذ إجراء للعمل على المسافات
 - title: تصفية حسب المسافة
 - title: عرض المواقع في تطبيق الخرائط
-  completion: internal
+  completion:
+  - internal
 - title: إنتهيت تقريباً
